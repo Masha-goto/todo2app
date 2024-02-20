@@ -11,6 +11,26 @@
   </head>
 
   <body>
+		<header class="header">
+			<p class="header_pageTitle">Boards</p>
+			<div class="dropdown">
+				<%= image_tag 'Oval.png', class: 'header_avatar dropbtn' %>
+				<div class="dropdown-content">
+					<a href="#">プロフィール</a>
+					<a href="#">ログアウト</a>
+				</div>
+      </div>
+		</header>
+		<% if flash[:notice] %>
+			<div class="alert alert-info">
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+		<% if flash[:alert] %>
+			<div class="alert alert-danger">
+				<%= flash[:alert] %>
+			</div>
+		<% end %>
     <%= yield %>
   </body>
 </html>
