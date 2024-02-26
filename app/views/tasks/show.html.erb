@@ -1,3 +1,32 @@
-	<p>
-		<%= @task.title %>
-	</p>
+<div class="container">
+	<h2>All Board</h2>
+	<div class="card">
+		<div class="task_detail_actions">
+			<div class="dropdown">
+				<%= image_tag 'Combined Shape.svg', class: 'dropbtn' %>
+				<div class="dropdown-content mini">
+					<%= link_to 'Edit', edit_task_path(@task) %>
+					<%= link_to 'Delete', task_path(@task), data: { method: 'delete', confirm: 'Are you sure you want me to delete it?'} %>
+				</div>
+			</div>
+		</div>
+		<div class="card_content">
+			<div class="card_title">
+				<%= @task.title %>
+			</div>
+			<div class="card_text">
+				<%= @task.content %>
+			</div>
+			<div class="card_detail">
+				<%= image_tag 'Users.png' %>
+			</div>
+		</div>
+	</div>
+	<%= link_to new_task_path do %>
+		<div class="card add">
+			<div class="card_content">
+				<div class="add_new">+ Add new borad</div>
+			</div>
+		</div>
+	<% end %>
+</div>

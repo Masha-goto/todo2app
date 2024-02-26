@@ -1,0 +1,49 @@
+@import './variables';
+
+$avatar-size: 32px;
+
+.card {
+  background-color: #F4F4F4;
+  margin: 25px 0;
+  cursor: pointer;
+	border-radius: 10px;
+
+  &_detail {
+    padding-top: 12px;
+    cursor: pointer;
+    display: flex;
+    font-size: 10px;
+
+    img {
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 100%;
+      margin-right: 8px;
+    }
+  }
+
+  &_content {
+    padding: 16px 16px;
+		width: 360px;
+		height: 100%;
+  }
+
+	&.add {
+		background-color: #fff;
+		border: 1px dashed rgba(0, 0, 0, 0.2);
+		height: 160px;
+		position: relative;
+	}
+}
+
+.card_text {
+	margin-top: 10px;
+	color: #9e9e9e;
+}
+
+.add_new {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
