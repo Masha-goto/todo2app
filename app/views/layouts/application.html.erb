@@ -12,23 +12,22 @@
 
   <body>
 		<header class="header">
-			<p class="header_pageTitle">Boards</p>
+			<%= link_to :back do %>
+				<p class="header_pageTitle">Boards</p>
+			<% end %>
 			<div class="dropdown">
 				<%= image_tag 'Oval.png', class: 'header_avatar dropbtn' %>
 				<div class="dropdown-content">
-					<a href="#">プロフィール</a>
-					<a href="#">ログアウト</a>
+					<a href="#">profile</a>
+					<a href="#">log out</a>
 				</div>
       </div>
 		</header>
-		<% if flash[:notice] %>
-			<div class="alert alert-info">
-				<%= flash[:notice] %>
-			</div>
-		<% end %>
-		<% if flash[:alert] %>
-			<div class="alert alert-danger">
-				<%= flash[:alert] %>
+		<% if flash.present? %>
+			<div class="flash">
+				<% flash.each do |key, value| %>
+					<div class="<%= key %>"><%= value %></div>
+				<% end %>
 			</div>
 		<% end %>
     <%= yield %>
