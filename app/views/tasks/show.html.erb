@@ -1,6 +1,7 @@
 <div class="container">
 	<h2>All Board</h2>
 	<div class="card">
+		<% if user_signed_in? %>
 		<div class="task_detail_actions">
 			<div class="dropdown">
 				<%= image_tag 'Combined Shape.svg', class: 'dropbtn' %>
@@ -10,6 +11,7 @@
 				</div>
 			</div>
 		</div>
+		<% end %>
 		<div class="card_content">
 			<div class="card_title">
 				<%= @task.title %>
