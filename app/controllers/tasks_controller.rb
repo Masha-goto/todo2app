@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-	before_action :set_task, only: [:show, :edit, :update]
+	before_action :set_task, only: [:show]
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
 		@tasks = Task.all
@@ -9,11 +10,11 @@ class TasksController < ApplicationController
 	end
 
 	def new
-		@task = Task.new
+		@task = current_user.tasks.build
 	end
 
 	def create
-		@task = Task.new(task_params)
+		@task = current_user.tasks.build(task_params)
 		if @task.save
 			redirect_to task_path(@task), notice: 'Saved in.'
 		else
@@ -23,9 +24,11 @@ class TasksController < ApplicationController
 	end
 
 	def edit
+		@task = current_user.tasks.find(params[:id])
 	end
 
 	def update
+		@task = current_user.tasks.find(params[:id])
 		if @task.update(task_params)
 			redirect_to task_path(@task), notice: 'I was able to change it.'
 		else
@@ -35,14 +38,14 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
-		article = Task.find(params[:id])
-		article.destroy!
+		task = current_user.tasks.find(params[:id])
+		task.destroy!
 		redirect_to root_path, notice: 'Successfully deleted.'
 	end
 
 	private
 	def task_params
-		params.require(:task).permit(:title, :content)
+		params.require(:task).permit(:name, :content)
 	end
 
 	def set_task
