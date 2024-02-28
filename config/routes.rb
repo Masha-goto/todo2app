@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
 	resources :tasks
 
-	resource :profile
+	resource :profile, only: [:show, :edit, :update]
 end
