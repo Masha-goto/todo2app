@@ -14,7 +14,7 @@
       .card_text
         = @task.content
       .card_detail
-        = image_tag 'Users.png'
+        = image_tag @task.user.avatar_image
   = link_to new_task_path do
     .card.add
       .card_content
