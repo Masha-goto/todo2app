@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 	resources :tasks
 
 	resource :profile, only: [:show, :edit, :update]
+
+	resources :cards
 end

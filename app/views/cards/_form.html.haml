@@ -1,0 +1,23 @@
+.container
+  %h2 New Card
+  %ul
+    - card.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: card, local: true) do |f|
+    %div
+      = f.label :eyecatch, 'eyecatch'
+    %div
+      = f.file_field :eyecatch
+    %div
+      = f.label :name, 'Name'
+    %div
+      = f.text_field :name, class: 'text'
+    %div
+      = f.label :content, 'Description'
+    %div
+      = f.text_area :content
+    %div
+      = f.label :limit_date, 'limit_date'
+    %div
+      = f.date_field :limit_date
+    = f.submit 'Submit', class: 'btn-primary'

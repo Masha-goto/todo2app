@@ -1,0 +1,8 @@
+.container
+  %h2 Brackets
+  - @cards.each do |card|
+    = render 'commons/card', card: card
+  = link_to new_card_path do
+    .card.add
+      .card_content
+        .add_new + Add new card
