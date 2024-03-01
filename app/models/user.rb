@@ -23,10 +23,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 	has_many :tasks, dependent: :destroy
+	has_many :cards, dependent: :destroy
 	has_one :profile, dependent: :destroy
 
 	def has_written?(task)
 		tasks.exists?(id: task.id)
+	end
+
+	def has_written?(card)
+		cards.exists?(id: card.id)
 	end
 
 	def prepare_profile

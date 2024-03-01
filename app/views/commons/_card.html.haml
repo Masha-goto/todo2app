@@ -1,0 +1,14 @@
+= link_to card_path(card) do
+  .card
+    - if card.eyecatch.attached?
+      .card_image
+        = image_tag card.eyecatch
+    .card_content
+      .card_title.index
+        = card.name
+      .card_text
+        = card.content
+      .card_limit
+        = card.limit_date
+      .card_detail
+        = image_tag card.user.avatar_image

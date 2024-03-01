@@ -1,12 +1,34 @@
 @import './variables';
 
 $avatar-size: 32px;
+$container-padding: 16px;
 
 .card {
   background-color: #F4F4F4;
   margin: 25px 0;
   cursor: pointer;
 	border-radius: 10px;
+	padding: $container-padding;
+
+	&_image {
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+		&.show {
+			margin-top: 32px;
+		}
+  }
 
   &_detail {
     padding-top: 12px;
@@ -20,11 +42,21 @@ $avatar-size: 32px;
       border-radius: 100%;
       margin-right: 8px;
     }
+
+		&_actions {
+			position: absolute;
+			right: 40px;
+
+			&.show {
+				top: 0;
+				right: 0;
+			}
+		}
   }
 
   &_content {
     padding: 16px 16px;
-		width: 360px;
+		width: 100%;
 		height: 100%;
   }
 
@@ -34,11 +66,40 @@ $avatar-size: 32px;
 		height: 160px;
 		position: relative;
 	}
+
+	&_title {
+		white-space: normal;
+		&.show {
+			font-size: 26px;
+			position: relative;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			font-weight: 700;
+		}
+
+		&.index {
+			font-size: 18px;
+			font-weight: 700;
+		}
+
+	}
 }
 
 .card_text {
-	margin-top: 10px;
+	margin-top: 6px;
 	color: #9e9e9e;
+	white-space: normal;
+
+	&.show {
+		color: #000;
+		margin-top: 0;
+	}
+}
+
+.card_limit {
+	margin-top: 6px;
+	font-size: 12px;
 }
 
 .add_new {
