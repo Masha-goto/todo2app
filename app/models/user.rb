@@ -25,6 +25,7 @@ class User < ApplicationRecord
 	has_many :tasks, dependent: :destroy
 	has_many :cards, dependent: :destroy
 	has_one :profile, dependent: :destroy
+	has_many :comments, dependent: :destroy
 
 	def has_written?(task)
 		tasks.exists?(id: task.id)

@@ -17,9 +17,13 @@
         = @card.content
       .card_limit
         = @card.limit_date
-      -# .card_detail
-      -#   = image_tag @card.user.avatar_image
-  = link_to new_card_path do
-    .card.add
+  .card.comment
+    %h2 Comment
+    - @comments.each do |comment|
+      .card_detail
+        = image_tag @card.user.avatar_image
+        %p= comment.content
+  = link_to new_card_comment_path(@card) do
+    .card.add.comment
       .card_content
         .add_new + Add new comment
