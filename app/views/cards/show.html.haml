@@ -1,7 +1,7 @@
 .container
   .card_title.show
     = @card.name
-    - if user_signed_in?  && current_user.has_written?(@card)
+    - if user_signed_in? && current_user.has_described?(@card)
       .card_detail_actions.show
         .dropdown
           = image_tag 'Combined Shape.svg', class: 'dropbtn'
