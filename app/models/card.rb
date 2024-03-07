@@ -21,5 +21,19 @@ class Card < ApplicationRecord
 	validates :limit_date, presence: true
 	has_one_attached :eyecatch
 	has_many :comments, dependent: :destroy
+
 	belongs_to :user
+
+	def author_name
+		user.display_name
+	end
+
+	def comment_count
+		comments.count
+	end
+
+
+	def has_commented?(current_user)
+		comments.where(user_id: current_user.id).exists?
+	end
 end

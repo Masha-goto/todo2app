@@ -4,6 +4,7 @@ class CardsController < ApplicationController
 
 	def index
 		@cards = Card.all
+		@comments = Comment.all
 	end
 
 	def show
@@ -50,6 +51,6 @@ class CardsController < ApplicationController
 	end
 
 	def set_card
-    @card = Card.find(params[:id])
-  end
+		@card = Card.find(params[:id])
+	end
 end
