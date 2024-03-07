@@ -64,6 +64,11 @@ $container-padding: 16px;
 		}
   }
 
+	&_index {
+		gap: unset;
+		position: relative;
+	}
+
   &_content {
     padding: 16px 16px;
 		width: 100%;
@@ -129,4 +134,17 @@ $container-padding: 16px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.card_count {
+	position: absolute;
+	right: 0;
+	span {
+		position: absolute;
+		top: 50%;
+		left: -15px;
+		transform: translateY(-50%);
+		font-size: 14px;
+    color: rgba(0, 0, 0, .2);
+	}
 }

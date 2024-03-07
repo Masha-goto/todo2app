@@ -10,5 +10,11 @@
         = card.content
       .card_limit
         = card.limit_date
-      .card_detail
+      .card_detail.card_index
         = image_tag card.user.avatar_image
+        - if card.has_commented?(current_user)
+          - @comments.each do |comment|
+            = image_tag comment.user.avatar_image
+        .card_count
+          %span= card.comment_count
+          = image_tag 'message-square-outline.svg'

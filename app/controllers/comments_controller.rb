@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+	before_action :authenticate_user!
+
 	def new
 		card = Card.find(params[:card_id])
 		@comment = card.comments.build
@@ -17,6 +19,6 @@ class CommentsController < ApplicationController
 
 	private
 	def comment_params
-		params.require(:comment).permit(:content).merge(user_id:current_user.id)
+		params.require(:comment).permit(:content).merge(user_id: current_user.id)
 	end
 end

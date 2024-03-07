@@ -27,4 +27,13 @@ class Card < ApplicationRecord
 	def author_name
 		user.display_name
 	end
+
+	def comment_count
+		comments.count
+	end
+
+
+	def has_commented?(current_user)
+		comments.where(user_id: current_user.id).exists?
+	end
 end

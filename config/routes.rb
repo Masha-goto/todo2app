@@ -10,5 +10,4 @@ Rails.application.routes.draw do
 	resources :cards do
 		resources :comments, only: [:new, :create]
 	end
-
 end

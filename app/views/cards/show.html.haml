@@ -21,7 +21,7 @@
     %h2 Comment
     - @comments.each do |comment|
       .card_detail
-        = image_tag @card.user.avatar_image
+        = image_tag comment.user.avatar_image
         %p= comment.content
   = link_to new_card_comment_path(@card) do
     .card.add.comment

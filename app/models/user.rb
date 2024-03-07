@@ -25,6 +25,7 @@ class User < ApplicationRecord
 	has_many :tasks, dependent: :destroy
 	has_many :cards, dependent: :destroy
 	has_many :comments, dependent: :destroy
+	has_many :comment_cards, through: :comments, source: :card
 	has_one :profile, dependent: :destroy
 
 	def has_written?(task)
